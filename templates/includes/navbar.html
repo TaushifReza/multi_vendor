@@ -1,0 +1,82 @@
+<!-- prettier-ignore -->
+{% load static %}
+
+<!-- ========== Start Header ========== -->
+<header id="header">
+  <div class="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+          <div class="logo">
+            <figure>
+              <a href="{% url 'home' %}" class="light-logo">
+                <img
+                  src="{% static '/logo/foodOnlineLogo.png' %}"
+                  alt="FoodBakery"
+                  width="250"
+                />
+              </a>
+            </figure>
+          </div>
+
+          <div class="main-location" style="margin-left: 15px">
+            <ul>
+              <li class="location-has-children choose-location">
+                <form action="#">
+                  <input
+                    type="text"
+                    value=""
+                    name="location"
+                    placeholder="Enter your delivery location"
+                    autocomplete="off"
+                  />
+                  <span
+                    id="foodbakery_radius_location_open"
+                    class="foodbakery-radius-location"
+                    ><i class="icon-target5"></i
+                  ></span>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="login-option">
+            <!-- prettier-ignore -->
+            {% if user.is_authenticated %}
+            <a
+              class="cs-color cs-popup-joinus-btn login-popup ml-3"
+              href="{% url 'myAccount' %}"
+            >
+              My Account
+            </a>
+            <a
+              class="cs-color cs-popup-joinus-btn login-popup ml-3"
+              href="{% url 'logout' %}"
+            >
+              Log Out
+            </a>
+            {% else %}
+            <a
+              class="cs-color cs-popup-joinus-btn login-popup"
+              href="{% url 'login' %}"
+              >Login /
+              <span
+                ><a
+                  class="cs-color cs-popup-joinus-btn login-popup ml-0"
+                  href="{% url 'registerUser' %}"
+                >
+                  Register</a
+                ></span
+              ></a
+            ><a class="get-start-btn" href="{% url 'registerVendor' %}">
+              Register Restaurant
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ========== End Header ========== -->

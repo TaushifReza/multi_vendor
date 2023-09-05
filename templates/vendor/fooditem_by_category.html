@@ -1,0 +1,109 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Register User
+{% endblock title %}
+
+{% block content %}
+<!-- ========== Start dashboard ========== -->
+<!-- Main Section Start -->
+<div class="main-section">
+  {% include "includes/cover.html" %}
+  <div class="page-section account-header buyer-logged-in">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <div class="user-account-nav user-account-sidebar">
+            <!-- ========== Start Load sidebar ========== -->
+            {% include 'includes/v_sidebar.html' %}
+            <!-- ========== End Load sidebar ========== -->
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+          <div class="user-dashboard loader-holder">
+            <div class="user-holder">
+              <h5 class="text-uppercase">Build Your Food Menu</h5>
+              <hr />
+              <h6>
+                Category:
+                <span class="text-uppercase text-info">{{ category }}</span>
+              </h6>
+              <!--
+              <a href="#" class="btn btn-success float-right m-1"
+                ><i class="fa-solid fa-plus"></i>&nbsp;Add Food</a
+              >
+              <a href="#" class="btn btn-info float-right m-1"
+                ><i class="fa-solid fa-plus"></i>&nbsp;Add Category</a
+              >
+              -->
+              <table class="table table-hover table-borderless">
+                <tbody>
+                  {% if fooditem %} {% for food in fooditem %}
+                  <tr>
+                    <th scope="row" class="text-left">{{ forloop.counter }}</th>
+                    <td class="text-left">
+                      <img
+                        src="{{ food.image.url }}"
+                        alt="Food Item"
+                        width="40"
+                      />
+                    </td>
+                    <td class="text-left">
+                      <a href="{% url 'fooditem_by_category' food.id %}">
+                        <p class="mb-0 font-weight-bold">{{ cat }}</p>
+                        <small class="text-muted"
+                          >{{ food.description }}
+                        </small></a
+                      >
+                    </td>
+                    <td class="text-left">
+                      {% if food.is_available %}
+                      <span class="badge badge-success">Available</span>
+                      {% else %}
+                      <span class="badge badge-danger">Not Available</span>
+                      {% endif %}
+                    </td>
+                    <td>
+                      <a
+                        href="{% url 'edit_food' food.id %}"
+                        style="color: unset"
+                        ><i class="fa-solid fa-pen-to-square"></i
+                      ></a>
+                    </td>
+                    <td>
+                      <a
+                        href="{% url 'delete_food' food.id %}"
+                        onclick="return confirm('Do your really want to delete this Food Item?')"
+                        style="color: unset"
+                        ><i class="fa-solid fa-trash text-danger"></i
+                      ></a>
+                    </td>
+                  </tr>
+                  <!-- prettier-ignore -->
+                  {% endfor %}
+                  {% else %}
+                  <div class="text-center">
+                    <h5>No Food Item in this Category.</h5>
+                    <a href="#" class="btn btn-success m-1"
+                      ><i class="fa-solid fa-plus"></i>&nbsp;Add Food</a
+                    >
+                  </div>
+                  {% endif %}
+                </tbody>
+              </table>
+              <button class="btn btn-secondary mt-2" onclick="history.back()">
+                <i class="fa-solid fa-angle-left"></i>
+                &nbsp;Go back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Section End -->
+  <!-- ========== End dashboard ========== -->
+  {% endblock content %}
+</div>

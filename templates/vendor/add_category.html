@@ -1,0 +1,75 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Register User
+{% endblock title %}
+
+{% block content %}
+<!-- ========== Start dashboard ========== -->
+<!-- Main Section Start -->
+<div class="main-section">
+  {% include "includes/cover.html" %}
+  <div class="page-section account-header buyer-logged-in">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <div class="user-account-nav user-account-sidebar">
+            <!-- ========== Start Load sidebar ========== -->
+            {% include 'includes/v_sidebar.html' %}
+            <!-- ========== End Load sidebar ========== -->
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+          <div class="user-dashboard loader-holder">
+            <div class="user-holder">
+              <h5 class="text-uppercase">Build Your Food Menu</h5>
+              <hr />
+              <h6>Add New Category</h6>
+              <!-- Render Form -->
+              <form action="{% url 'add_category' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-fields-set">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="field-holder">
+                        <label>Category Name *</label>
+                        {{ form.category_name }}
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="field-holder">
+                        <label>Description</label>
+                        {{ form.description }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- prettier-ignore -->
+                {% for field in form %}
+                
+                {% if field.errors %}
+                {% for error in field.errors %}
+                <li style="color: red">{{ error }}</li>
+
+                <!-- prettier-ignore -->
+                {% endfor %}
+                {% endif %} 
+                
+                {% endfor %}
+
+                <button class="btn btn-success" type="submit">
+                  <i class="fa-solid fa-plus"></i>&nbsp;Add Categoty
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Section End -->
+  <!-- ========== End dashboard ========== -->
+  {% endblock content %}
+</div>

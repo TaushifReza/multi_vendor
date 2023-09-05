@@ -1,0 +1,13 @@
+<!-- prettier-ignore -->
+{% autoescape off %}
+
+Hi, {{ user.first_name }}
+
+{% if is_approved %}
+Congrulation, your resturant have been approved.
+{% else %}
+Sorry, your resturant have been not approved. Please check your document.
+{% endif %}
+
+<!-- prettier-ignore -->
+{% endautoescape %}

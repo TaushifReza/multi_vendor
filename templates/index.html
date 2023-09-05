@@ -1,0 +1,398 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home Page
+{% endblock title %}
+
+{% block content %}
+<!-- ========== Start Main Content ========== -->
+<!-- Main Section Start -->
+<div class="main-section">
+  <!-- Home Pages Elements Strat -->
+  <!-- Main Search Start -->
+  <!-- prettier-ignore -->
+  <div
+    class="page-section nopadding cs-nomargin"
+    style="
+      padding-top: 200px;
+      padding-bottom: 150px;
+      margin-bottom: 0px;
+      background: url({% static 'extra-images/bg-image1.jpg' %}) no-repeat center /
+        cover;
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="element-title">
+            <h1
+              style="
+                font-size: 40px;
+                color: #505050;
+                text-transform: uppercase;
+                line-height: 50px;
+                margin-bottom: 25px;
+                text-align: center;
+              "
+            >
+              We are in the business of food<br />our restaurants do
+            </h1>
+            <p
+              style="
+                font-size: 18px;
+                letter-spacing: 1px;
+                color: #505050;
+                text-align: center;
+              "
+            >
+              Ridiculus sociosqu cursus neque cursus curae ante scelerisque
+              vehicula.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="main-search fancy bg-holder">
+            <form>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                  <div class="field-holder">
+                    <input type="text" placeholder="Resturant name" />
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+                  <div class="field-holder">
+                    <ul>
+                      <li class="select-location">
+                        <div
+                          class="foodbakery-locations-fields-group foodbakery-focus-out"
+                        >
+                          <span class="foodbakery-search-location-icon"
+                            ><i class="icon-location"></i
+                          ></span>
+                          <span
+                            id="foodbakery_radius_location_open333"
+                            class="foodbakery-radius-location"
+                            ><i class="icon-target5"></i
+                          ></span>
+                          <input
+                            type="text"
+                            class="location-field-text filter"
+                            placeholder="All Locations"
+                          />
+                        </div>
+                        <div
+                          class="select-location"
+                          id="foodbakery-radius-range333"
+                          style="display: none"
+                        >
+                          <div class="select-popup popup-open">
+                            <a
+                              id="location_close_popup333"
+                              href="javascript:0;"
+                              class="location-close-popup"
+                            >
+                              <i class="icon-times"></i
+                            ></a>
+                            <input
+                              type="hidden"
+                              class="foodbakery-radius"
+                              name="foodbakery_radius"
+                              value="10"
+                            />
+                            <p>Show with in</p>
+                            <input
+                              id="ex16b333"
+                              type="text"
+                              data-value="10"
+                              value="10"
+                              style="display: none"
+                            />
+                            <script>
+                              jQuery(document).ready(function () {
+                                var elem = jQuery("#ex16b333");
+                                if (elem.length != "") {
+                                  elem.slider({
+                                    step: 1,
+                                    min: 0,
+                                    max: 500,
+                                    value: 10,
+                                  });
+                                  elem.on("slideStop", function () {
+                                    var rang_slider_val = elem.val();
+                                    jQuery(
+                                      "#ex16b333CurrentSliderValLabel"
+                                    ).html(rang_slider_val);
+                                    jQuery(
+                                      "#range-hidden-foodbakery-radius333"
+                                    ).val(rang_slider_val);
+                                    //foodbakery_restaurant_content("333");
+                                  });
+                                  elem.on("slide", function () {
+                                    jQuery(
+                                      "#ex16b333CurrentSliderValLabel"
+                                    ).html(elem.val());
+                                  });
+                                }
+
+                                $("#foodbakery_radius_location_open333").click(
+                                  function () {
+                                    $("#foodbakery-radius-range333").show();
+                                  }
+                                );
+                                $("#location_close_popup333").click(
+                                  function () {
+                                    $("#foodbakery-radius-range333").hide();
+                                  }
+                                );
+                              });
+                            </script>
+                            <span
+                              >Miles:
+                              <span id="ex16b333CurrentSliderValLabel"
+                                >10</span
+                              ></span
+                            ><br />
+                            <p class="my-location">
+                              of
+                              <i class="cs-color icon-location-arrow"></i
+                              ><a
+                                id="foodbakery-geo-location-all"
+                                class="cs-color foodbakery-geo-location313324"
+                                href="javascript:void(0)"
+                                >My location</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                  <div class="field-holder">
+                    <input type="submit" value="Search" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Search End -->
+
+  <!-- Top Restarurants Section Start -->
+  <div
+    class="page-section nopadding cs-nomargin"
+    style="
+      margin-top: 0px;
+      padding-top: 60px;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+      background: #ffffff;
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="element-title align-left">
+            <h2>Top Restaurants</h2>
+            <p>Explore restaurants, bars, and cafés by locality</p>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="company-logo">
+            <ul>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/listing-logo18.png"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/fb-restaurant-02.jpg"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/fb-restaurant-04.jpg"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/fb-restaurant-06.jpg"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/listing-logo09.png"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/listing-logo18.png"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+              <li class="has-border">
+                <figure>
+                  <a href="#"
+                    ><img
+                      src="assets/extra-images/fb-restaurant-09.png"
+                      class="attachment-full size-full wp-post-image"
+                      alt=""
+                  /></a>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Restarurants Section End -->
+  <!-- Choose From Most Popular Listin Start -->
+  <div
+    class="page-section nopadding cs-nomargin"
+    style="
+      margin-top: 0px;
+      padding-top: 60px;
+      padding-bottom: 50px;
+      margin-bottom: 0px;
+      background: #ffffff;
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="element-title align-center">
+            <h2>Choose From Most Popular Restaurants</h2>
+            <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="listing fancy">
+            <ul class="row">
+              <li class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="list-post featured">
+                  <div class="img-holder">
+                    <figure>
+                      <a href="#"
+                        ><img
+                          src="assets/extra-images/listing-logo18.png"
+                          class="img-thumb wp-post-image"
+                          alt=""
+                      /></a>
+                    </figure>
+                    <span class="restaurant-status close">
+                      <em class="bookmarkRibbon"></em>Close
+                    </span>
+                  </div>
+                  <div class="text-holder">
+                    <div class="list-rating">
+                      <div class="rating-star">
+                        <span class="rating-box" style="width: 100%"></span>
+                      </div>
+                      <span class="reviews">(1)</span>
+                    </div>
+                    <div class="post-title">
+                      <h5>
+                        <a href="listing-detail.html">Restaurant Demo</a>
+                        <span class="sponsored text-color">Sponsored</span>
+                      </h5>
+                    </div>
+                    <address><span>Type of food : </span> Apple Juice</address>
+                  </div>
+                </div>
+              </li>
+
+              <li class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="list-post featured">
+                  <div class="img-holder">
+                    <figure>
+                      <a href="#"
+                        ><img
+                          src="assets/extra-images/listing-logo09.png"
+                          class="img-thumb wp-post-image"
+                          alt=""
+                      /></a>
+                    </figure>
+                    <span class="restaurant-status open">
+                      <em class="bookmarkRibbon"></em>open
+                    </span>
+                  </div>
+                  <div class="text-holder">
+                    <div class="list-rating">
+                      <div class="rating-star">
+                        <span class="rating-box" style="width: 100%"></span>
+                      </div>
+                      <span class="reviews">(1)</span>
+                    </div>
+                    <div class="post-title">
+                      <h5>
+                        <a href="listing-detail.html">Classic Restaurant</a>
+                        <span class="sponsored text-color">Sponsored</span>
+                      </h5>
+                    </div>
+                    <address>
+                      <span>Type of food : </span> Chicken Roast, Chines Soup,
+                      Cold Coffee, Cold Drink, Hot Dogs
+                    </address>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Choose From Most Popular Listing End -->
+
+  <!-- Home Pages Elements End  -->
+</div>
+<!-- Main Section End -->
+<!-- ========== End Main Content ========== -->
+{% endblock content %}

@@ -1,0 +1,10 @@
+<!-- prettier-ignore -->
+{% autoescape off %}
+
+<p>Hi, {{ user.first_name }}</p>
+
+<p>Please click on below link to confirm your registration.</p>
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+<!-- prettier-ignore -->
+{% endautoescape %}
