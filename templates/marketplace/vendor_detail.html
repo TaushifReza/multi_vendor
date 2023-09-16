@@ -170,16 +170,36 @@ Resturant Detail
                         </div>
                         <div class="price-holder">
                           <span class="price">${{ food.price }}</span>
-                          <a href="#" class="restaurant-add-menu-btn"
-                            ><i class="icon-plus4 text-color"></i
+                          <a
+                            href="#"
+                            class="decrease_cart btn btn-outline-danger btn-sm m-0"
+                            data-id="{{ food.id }}"
+                            data-url='{% url "decrease_cart" food.id %}'
+                            ><i class="fa-solid fa-minus m-0"></i
                           ></a>
-                          <span id="add-menu-loader-10"></span>
+                          <label id="qty-{{ food.id }}">0</label>
+                          <a
+                            href="#"
+                            class="add_to_cart btn btn-outline-success btn-sm m-0"
+                            data-id="{{ food.id }}"
+                            data-url='{% url "add_to_cart" food.id %}'
+                            ><i class="fa-solid fa-plus m-0"></i
+                          ></a>
                         </div>
                       </li>
                       {% endfor %}
                     </ul>
                     {% endfor %}
                   </div>
+                  <!-- prettier-ignore -->
+                  {% for item in cart_items %}
+                  <span
+                    id="qty-{{ item.fooditem.id }}"
+                    class="item_qty d-none"
+                    data-qty="{{ item.quantity }}"
+                    >{{ item.quantity }}</span
+                  >
+                  {% endfor %}
                 </div>
               </div>
             </div>
