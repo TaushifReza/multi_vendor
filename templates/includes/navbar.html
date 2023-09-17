@@ -44,7 +44,7 @@
           <div class="login-option">
             <!-- prettier-ignore -->
             {% if user.is_authenticated %}
-            <a href="">
+            <a href="{% url "cart" %}">
               <i
                 class="fa fa-shopping-cart text-danger"
                 style="font-size: 20px"

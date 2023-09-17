@@ -1,5 +1,6 @@
 <!-- prettier-ignore -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Resturant Detail
@@ -25,7 +26,7 @@ Resturant Detail
             <div class="company-info">
               <div class="img-holder">
                 <figure>
-                  <img src="assets/extra-images/listing-logo18.png" alt="" />
+                  <img src="{{ vendor.user_profile.profile_picture.url }}" alt="" />
                 </figure>
               </div>
               <div class="text-holder">
